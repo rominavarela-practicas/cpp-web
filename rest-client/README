@@ -1,0 +1,4 @@
+### to test
+sudo apt-get install curl
+### to code
+sudo apt-get install libcurl4-openssl-dev
