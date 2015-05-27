@@ -1,0 +1,1 @@
+curl -d foo=bla -H Accept:application/json --url http://localhost:3000/post/something
