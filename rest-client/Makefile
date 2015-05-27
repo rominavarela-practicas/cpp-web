@@ -8,12 +8,6 @@ program_C_SRCS = $(wildcard ./src/*.c)
 program_CXX_SRCS = $(wildcard ./src/*.cpp)
 program_SRCS =  $(program_C_SRCS) $(program_CXX_SRCS)
 
-program_C_OBJS = ${program_C_SRCS:.c=.o}
-program_C_OBJS = ${program_C_SRCS:./src/=}
-program_CXX_OBJS = ${program_CXX_SRCS:.cpp=.o}
-program_CXX_OBJS = ${program_CXX_SRCS:./src/=}
-program_OBJS = $(program_C_OBJS) $(program_CXX_OBJS)
-
 ##########################################################
 ### -I ./include
 ###  directory with .h, .hpp
@@ -36,5 +30,3 @@ LDFLAGS += $(foreach library,$(program_LIBRARIES),-l$(library))
 all:
 	$(CXX) $(CXXFLAGS) $(program_SRCS) $(LDFLAGS) $(CPPFLAGS) -o $(program_NAME)
 
-clean:
-	@- $(RM) $(program_OBJS)
