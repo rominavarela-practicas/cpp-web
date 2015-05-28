@@ -6,12 +6,12 @@ Using https://github.com/mrtazz/restclient-cpp
 
 Linux dependencies:<br/>
 -to test
- > sudo apt-get install curl
--to code
+ > sudo apt-get install curl<br/>
+-to code<br/>
  > sudo apt-get install libcurl4-openssl-dev
 
-Windows dependencies:
-1) Download developer library http://curl.haxx.se/libcurl/
+Windows dependencies:<br/>
+1) Download developer library http://curl.haxx.se/libcurl/<br/>
 2) Move downloaded content to system and register /bin into System Variables
 
 ##node-server
