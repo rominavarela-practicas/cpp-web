@@ -4,7 +4,7 @@ Web Services in C++
 ##rest-client
 Using https://github.com/mrtazz/restclient-cpp
 
-Linux dependencies:
+Linux dependencies:<br/>
 -to test
  > sudo apt-get install curl
 -to code
