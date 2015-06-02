@@ -19,6 +19,11 @@ app.get('/', function (req, res) {
 });
 
 app.get('/get/:something', function (req, res) {
+  fs.writeFile('GOT.log', CircularJSON.stringify(req), function (err) {
+    if (err) return console.log(err);
+    console.log('out > GOT.log');
+  });
+
   res.send('client get: '+req.params.something);
 });
 

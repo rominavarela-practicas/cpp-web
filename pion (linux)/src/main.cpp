@@ -7,12 +7,20 @@
 #include <iostream>
 #include <boost/asio.hpp>
 #include <boost/thread.hpp>
-#include <pion/PionHashMap.hpp>
+#include <pion/http/request.hpp>
+#include <pion/http/request_writer.hpp>
 
 using namespace std;
+using namespace pion;
 
 int main()
 {
 	std::cout << "!!!Hello World!!!" << endl;
+	//pion::http::request::request 	r;
+	//pion::http::request::request* httpRequest_ptr =
+	//new request("http://localhost:3000");
+
+	//pion::http::request_ptr ptr;
+	http::request r = pion::http::request_writer::get_request();
 	return 0;
 }
