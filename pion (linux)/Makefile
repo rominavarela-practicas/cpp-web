@@ -18,7 +18,7 @@ program_INCLUDE_DIRS = ./include
 program_LIBRARY_DIRS =
 ###  linux:   lib***.a = -l***
 ###  windows: lib***.lib = -lib***.lib
-program_LIBRARIES = boost_system pthread
+program_LIBRARIES = boost_system boost_filesystem pthread
 
 #  include
 CPPFLAGS += $(foreach includedir,$(program_INCLUDE_DIRS),-I$(includedir))
@@ -29,4 +29,3 @@ LDFLAGS += $(foreach library,$(program_LIBRARIES),-l$(library))
 ##########################################################
 all:
 	$(CXX) $(CXXFLAGS) $(program_SRCS) $(LDFLAGS) $(CPPFLAGS) -o $(program_NAME)
-

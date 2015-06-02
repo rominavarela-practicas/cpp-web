@@ -15,6 +15,15 @@ Windows dependencies:<br/>
 1) Download developer library http://curl.haxx.se/libcurl/<br/>
 2) Move downloaded content to system and register /bin into System Variables
 
+##pion-client
+Pion-net: https://github.com/splunk/pion
+
+Linux dependencies:<br/>
+ > sudo apt-get install libpion-dev
+ > sudo apt-get install liblog4cplus-dev
+ > sudo apt-get install liblog4cpp5-dev
+ > sudo apt-get install libssl-dev
+
 ##node-server
 Basic server to test client GET and POST methods
 Install nodejs, then, in project folder run:
