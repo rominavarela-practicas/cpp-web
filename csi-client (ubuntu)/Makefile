@@ -25,8 +25,6 @@ program_SRCS +=  $(foreach dir,$(program_SRC_DIRS),$(wildcard $(dir)*.cpp))
 ###  directory with .h, .hpp
 ###  include<>
 program_INCLUDE_DIRS = ./include ./include/avro ./include/csi_http
-
-
 #  include
 CPPFLAGS += $(foreach dir,$(program_INCLUDE_DIRS),-I$(dir))
 

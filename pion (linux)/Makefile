@@ -1,30 +1,38 @@
 ##########################################################
-program_NAME = pion
+program_NAME = client
 CXXFLAGS+= -std=c++11
 
 ##########################################################
 ### all .c, .cpp and .o
-program_C_SRCS = $(wildcard ./src/*.c)
-program_CXX_SRCS = $(wildcard ./src/*.cpp)
-program_SRCS =  $(program_C_SRCS) $(program_CXX_SRCS)
+program_SRC_DIRS += ./src/ ./lib/pion/src/
+program_SRCS +=  $(foreach dir,$(program_SRC_DIRS),$(wildcard $(dir)*.c))
+program_SRCS +=  $(foreach dir,$(program_SRC_DIRS),$(wildcard $(dir)*.cc))
+program_SRCS +=  $(foreach dir,$(program_SRC_DIRS),$(wildcard $(dir)*.cpp))
 
 ##########################################################
 ### -I ./include
 ###  directory with .h, .hpp
 ###  include<>
-program_INCLUDE_DIRS = ./include
-###  -L ./lib
-###  directory with .a .so .lib .dll
-program_LIBRARY_DIRS =
-###  linux:   lib***.a = -l***
-###  windows: lib***.lib = -lib***.lib
-program_LIBRARIES = boost_system boost_filesystem pthread
-
+program_INCLUDE_DIRS = ./lib/pion/include
 #  include
 CPPFLAGS += $(foreach includedir,$(program_INCLUDE_DIRS),-I$(includedir))
-#  link
+
+##########################################################
+### LINK
+### .a .so .lib .dll
+# dirs
+program_LIBRARY_DIRS =
 LDFLAGS += $(foreach librarydir,$(program_LIBRARY_DIRS),-L$(librarydir))
-LDFLAGS += $(foreach library,$(program_LIBRARIES),-l$(library))
+
+# links
+###  linux:   lib***.a = -l***
+###  windows: lib***.lib = -lib***.lib
+boost_LIBRARIES = system thread regex filesystem
+program_LIBRARIES = pthread log4cpp ssl crypto dl z
+
+LDFLAGS += $(foreach lib,$(boost_LIBRARIES),-lboost_$(lib))
+LDFLAGS += $(foreach lib,$(program_LIBRARIES),-l$(lib))
+
 
 ##########################################################
 all:

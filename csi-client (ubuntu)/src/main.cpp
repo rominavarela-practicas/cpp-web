@@ -26,12 +26,12 @@ int main()
 		sample::HelloWorldRequest request;
 		request.delay = 0;
 		request.message = "nisse was here";
-		
+
 		handler.perform_async(
 				csi::create_avro_json_rest(
 				"localhost:3000/get/hello",
 				request,
-				{ "Content-Type:application/json", "Accept:application/json" },
+				{ "Content-Type:avro/json", "Accept:avro/json" },
 				std::chrono::milliseconds(1000)),
 				[](csi::http_client::call_context::handle request)
 		{
